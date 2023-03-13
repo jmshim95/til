@@ -10,21 +10,17 @@ public class Main_11659 {
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
         st = new StringTokenizer(br.readLine());
-        int[] numbers = new int[n];
+        int[] numbers = new int[n+1];
 
-        for (int i = 0; i < n; i++) {
-            numbers[i] = Integer.parseInt(st.nextToken());
+        for (int i = 1; i <= n; i++) {
+            numbers[i] = numbers[i-1] + Integer.parseInt(st.nextToken());
         }
 
         for (int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
-            int temp = 0;
-            for (int j = a-1; j < b; j++) {
-                temp += numbers[j];
-            }
-            sb.append(temp).append("\n");
+            sb.append(numbers[b] - numbers[a-1]).append("\n");
         }
 
         bw.write(sb.toString());
