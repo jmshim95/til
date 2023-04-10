@@ -42,7 +42,18 @@ public class Main_11005 {
             }
         }
 
-        bw.write(sb.toString());
+        String[] split = sb.toString().split("");
+        StringBuilder _sb = new StringBuilder();
+        boolean sFlag = true;
+        for (String s : split) {
+            if (s.equals("0") && sFlag) {
+            } else {
+                sFlag = false;
+                _sb.append(s);
+            }
+        }
+
+        bw.write(_sb.toString());
         br.close();
         bw.close();
     }
